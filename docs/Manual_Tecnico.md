@@ -58,7 +58,10 @@ canción y cómo se muestra en pantalla:
   silencios, lo limpia y lo pasa a `faster-whisper`.
 - `FuenteTermux`: ejecuta `termux-speech-to-text` en Android y entrega al motor cada
   frase que reconoce.
-- `FuenteSimulada`: lee frases de un archivo para probar el motor sin micrófono.
+- `FuenteSimulada`: lee frases de un archivo para probar el motor sin micrófono. Al
+  elegir `(t)`, una ruta vacía usa `prueba.txt` junto a `automatico.py`; las rutas
+  relativas se buscan primero desde la carpeta actual y después junto al programa.
+  Cada línea no vacía del archivo se entrega como una frase.
 - `Motor`: compara el texto con las líneas guardadas, busca la canción, calcula un
   tiempo aproximado por línea y guarda borradores de canciones nuevas.
 - `dibujar`, `menu_control` y `guardar_nueva`: muestran la pantalla, los controles y

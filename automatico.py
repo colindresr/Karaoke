@@ -955,10 +955,19 @@ def modo_automatico(con, K):
             fuente = FuenteTermux()
         # La fuente de prueba reproduce frases de un archivo local.
         elif op == "t":
-            ruta = input("Archivo con una 'frase oída' por línea: ").strip().strip('"')
+            ruta = input(
+                "Ruta del archivo con una frase por línea [prueba.txt; Enter para usarlo]: "
+            ).strip().strip('"')
+            if not ruta:
+                ruta = os.path.join(os.path.dirname(os.path.abspath(__file__)), "prueba.txt")
+            elif not os.path.isabs(ruta) and not os.path.exists(ruta):
+                ruta_programa = os.path.join(os.path.dirname(os.path.abspath(__file__)), ruta)
+                if os.path.exists(ruta_programa):
+                    ruta = ruta_programa
             # No intenta abrir un archivo inexistente.
             if not os.path.exists(ruta):
-                print("No se encontró el archivo.")
+                print("No se encontró ese archivo. Escribe prueba.txt o una ruta completa; "
+                      "las frases deben estar dentro del archivo, una por línea.")
                 K.pausa()
                 return
             # Permite cambiar la pausa entre frases o aceptar el valor predeterminado.

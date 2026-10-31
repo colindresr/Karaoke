@@ -28,13 +28,11 @@ La base de datos se crea o se abre en la misma carpeta que `karaoke.py`.
    ```powershell
    cd C:\Karaoke
    ```
-
 3. Para usar el modo manual no necesitas instalar paquetes adicionales. Ejecuta:
 
    ```powershell
    python .\karaoke.py
    ```
-
 4. Para usar el modo automático con micrófono, instala sus dependencias en ese mismo
    Python:
 
@@ -67,14 +65,12 @@ micrófono, el ambiente y el equipo, así que ninguno garantiza una transcripci�
    pkg update
    pkg install python termux-api
    ```
-
 3. Instala el complemento **Termux:API** y permite el uso del micrófono cuando Android
    lo pida. Comprueba que el comando esté disponible:
 
    ```sh
    command -v termux-speech-to-text
    ```
-
 4. Copia a una carpeta accesible desde Termux los archivos `karaoke.py`,
    `canciones_db.py`, `automatico.py` y, si ya tienes canciones guardadas,
    `CANCIONES.db`. También puedes copiar los archivos de texto de ejemplo. Puedes
@@ -92,7 +88,6 @@ micrófono, el ambiente y el equipo, así que ninguno garantiza una transcripci�
    ```sh
    python karaoke.py
    ```
-
 6. Elige `(a)` y luego `(a)` para usar el teléfono. Acepta los permisos de
    reconocimiento y micrófono si aparecen. Canta cerca del teléfono. Android convierte
    lo que oye en texto y el programa lo compara con las letras guardadas.
@@ -239,8 +234,10 @@ o `r` desde el menú de control permite corregir la posición durante la prueba.
 
 ### Probar sin micrófono
 
-La fuente de simulación sirve para revisar el motor antes de configurar audio. Crear un
-archivo de texto, por ejemplo `prueba.txt`, con una frase reconocible por línea:
+La fuente de simulación sirve para revisar el motor antes de configurar audio. El archivo
+`prueba.txt` incluido contiene frases reconocibles, una por línea. Cuando el programa
+solicite el archivo, escribe su ruta o pulsa Enter para usar el incluido; no escribas
+una frase en el campo de ruta:
 
 ```text
 La tarde deja un hilo dorado sobre el callejon
@@ -248,9 +245,10 @@ una taza espera tranquila junto al balcon
 cuando la noche enciende su farol azul
 ```
 
-Estas frases corresponden a `Luz en la ventana` en el archivo de ejemplo. Importar esa
-canción primero y luego elegir **(a) Modo automático → (t) simulación desde archivo de
-texto**. Indicar la ruta de `prueba.txt` y aceptar el intervalo sugerido. Las frases
+Estas frases corresponden a `Luz en la ventana` en el archivo de ejemplo. Si aún no está
+en el catálogo, impórtala primero desde `canciones_ejemplo.txt`. Luego elige
+**(a) Modo automático → (t) simulación desde archivo de texto**, escribe `prueba.txt` o
+pulsa Enter para usar el archivo incluido y acepta el intervalo sugerido. Las frases
 llegan una por una; al terminar el archivo, la simulación vuelve al menú.
 
 Esta prueba comprueba que las frases pueden compararse con el catálogo, pero no prueba
@@ -283,7 +281,7 @@ las canciones; prueba los cambios antes de usarlo en una presentación.
 - **No encuentra la canción**: revisa que esté en `CANCIONES.db`. En modo manual,
   prueba otras palabras o usa `(w)` para ver el nombre.
 - **Whisper no carga**: en Windows, instala `requirements.txt` con el mismo Python que
-  usas para abrir `karaoke.py`. Revisa el error y la conexión a Internet si es la
+  usas para abrir `karaoke.py`. Revisar el error y la conexión a Internet si es la
   primera vez que se descarga el modelo.
 - **Windows no detecta el micrófono**: revisa cuál es el micrófono predeterminado y
   permite que Windows y Python lo usen.

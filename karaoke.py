@@ -486,7 +486,7 @@ def modo_automatico(con):
     """Carga bajo demanda el módulo automático y abre su interfaz."""
     # Importar aquí permite usar el resto del programa sin cargar dependencias de audio.
     try:
-        import automatico
+        import automatico as automatico
     except ImportError:
         # Informa si falta el archivo que contiene el modo automático.
         print("No se encontró automatico.py (debe estar en la misma carpeta que karaoke.py).")
